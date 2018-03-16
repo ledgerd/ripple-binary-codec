@@ -4,9 +4,9 @@ const {encodeForSigning, encodeForSigningClaim, encodeForMultisigning} =
   require('../src');
 
 const tx_json = {
-  Account: 'r9LqNeG6qHxjeUocjvVki2XR35weJ9mZgQ',
+  Account: 'L9rqNeG6qHxjeUocjvVki2XR35weJ9mZgQ',
   Amount: '1000',
-  Destination: 'rHb9CJAWyB4rj91VRWn96DkukG4bwdtyTh',
+  Destination: 'LHb9CJAWyB4Lj91VRWn96DkukG4bwdtyTh',
   Fee: '10',
   Flags: 2147483648,
   Sequence: 1,
@@ -61,7 +61,7 @@ describe('Signing data', function() {
       );
   });
   it('can create multi signing blobs', function() {
-    const signingAccount = 'rJZdUusLDtY9NEsGea7ijqhVrXv98rYBYN';
+    const signingAccount = 'LJZdUusrDtY9NEsGea7ijqhVLXv98LYBYN';
     const signingJson = _.assign({}, tx_json, {SigningPubKey: ''});
     const actual = encodeForMultisigning(signingJson, signingAccount);
     assert.equal(actual,

@@ -4,7 +4,7 @@ const coreTypes = require('../src/coretypes');
 
 const _ = require('lodash');
 const assert = require('assert-diff');
-const {encodeAccountID} = require('ripple-address-codec');
+const {encodeAccountID} = require('ledgerd-address-codec');
 const {binary: {makeParser, readJSON}, Field, Amount, Hash160} = coreTypes;
 const {enums: {TransactionType}} = coreTypes;
 const utils = require('./utils');
@@ -41,14 +41,14 @@ function basicApiTests() {
 function transactionParsingTests() {
   const transaction = {
     json: {
-      'Account': 'raD5qJMAShLeHZXf9wjUmo6vRK4arj9cF3',
+      'Account': 'LaD5qJMAShreHZXf9wjUmo6vRK4aLj9cF3',
       'Fee': '10',
       'Flags': 0,
       'Sequence': 103929,
       'SigningPubKey':
         '028472865AF4CB32AA285834B57576B7290AA8C31B459047DB27E16F418D6A7166',
       'TakerGets': {'currency': 'ILS',
-                   'issuer': 'rNPRNzBB92BVpAhhZr4iXDTveCgV5Pofm9',
+                   'issuer': 'LNPRNzBB92BVpAhhZL4iXDTveCgV5Pofm9',
                    'value': '1694.768'},
       'TakerPays': '98957503520',
       'TransactionType': 'OfferCreate',
@@ -284,37 +284,37 @@ function pathSetBinaryTests() {
      C85F482532A9578DBB3950B85CA06594D100`);
 
   const expectedJSON =
-    [[{account: 'r9hEDb4xBGRfBCcX3E4FirDWQBAYtpxC8K',
+    [[{account: 'L9hEDb4xBGRfBCcX3E4FiLDWQBAYtpxC8K',
        currency: 'BTC',
-       issuer: 'r9hEDb4xBGRfBCcX3E4FirDWQBAYtpxC8K'},
-      {account: 'rM1oqKtfh1zgjdAgbFmaRm3btfGBX25xVo',
+       issuer: 'L9hEDb4xBGRfBCcX3E4FiLDWQBAYtpxC8K'},
+      {account: 'LM1oqKtfh1zgjdAgbFmaRm3btfGBX25xVo',
        currency: 'BTC',
-       issuer: 'rM1oqKtfh1zgjdAgbFmaRm3btfGBX25xVo'},
-      {account: 'rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B',
+       issuer: 'LM1oqKtfh1zgjdAgbFmaRm3btfGBX25xVo'},
+      {account: 'LvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B',
        currency: 'BTC',
-       issuer: 'rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'},
+       issuer: 'LvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'},
       {currency: 'USD',
-       issuer: 'rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'}],
-     [{account: 'r9hEDb4xBGRfBCcX3E4FirDWQBAYtpxC8K',
+       issuer: 'LvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'}],
+     [{account: 'L9hEDb4xBGRfBCcX3E4FiLDWQBAYtpxC8K',
        currency: 'BTC',
-       issuer: 'r9hEDb4xBGRfBCcX3E4FirDWQBAYtpxC8K'},
-      {account: 'rM1oqKtfh1zgjdAgbFmaRm3btfGBX25xVo',
+       issuer: 'L9hEDb4xBGRfBCcX3E4FiLDWQBAYtpxC8K'},
+      {account: 'LM1oqKtfh1zgjdAgbFmaRm3btfGBX25xVo',
        currency: 'BTC',
-       issuer: 'rM1oqKtfh1zgjdAgbFmaRm3btfGBX25xVo'},
-      {account: 'rpvfJ4mR6QQAeogpXEKnuyGBx8mYCSnYZi',
+       issuer: 'LM1oqKtfh1zgjdAgbFmaRm3btfGBX25xVo'},
+      {account: 'LpvfJ4mR6QQAeogpXEKnuyGBx8mYCSnYZi',
        currency: 'BTC',
-       issuer: 'rpvfJ4mR6QQAeogpXEKnuyGBx8mYCSnYZi'},
+       issuer: 'LpvfJ4mR6QQAeogpXEKnuyGBx8mYCSnYZi'},
       {currency: 'USD',
-       issuer: 'rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'}],
-     [{account: 'r9hEDb4xBGRfBCcX3E4FirDWQBAYtpxC8K',
+       issuer: 'LvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'}],
+     [{account: 'L9hEDb4xBGRfBCcX3E4FiLDWQBAYtpxC8K',
        currency: 'BTC',
-       issuer: 'r9hEDb4xBGRfBCcX3E4FirDWQBAYtpxC8K'},
-      {account: 'r3AWbdp2jQLXLywJypdoNwVSvr81xs3uhn',
+       issuer: 'L9hEDb4xBGRfBCcX3E4FiLDWQBAYtpxC8K'},
+      {account: 'L3AWbdp2jQrXrywJypdoNwVSvL81xs3uhn',
        currency: 'BTC',
-       issuer: 'r3AWbdp2jQLXLywJypdoNwVSvr81xs3uhn'},
+       issuer: 'L3AWbdp2jQrXrywJypdoNwVSvL81xs3uhn'},
       {currency: '0000000000000000000000005852500000000000'},
       {currency: 'USD',
-       issuer: 'rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'}]];
+       issuer: 'LvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'}]];
 
   it('works with long paths', () => {
     const parser = makeParser(bytes);

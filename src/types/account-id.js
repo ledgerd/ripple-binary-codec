@@ -1,5 +1,5 @@
 const makeClass = require('../utils/make-class');
-const {decodeAccountID, encodeAccountID} = require('ripple-address-codec');
+const {decodeAccountID, encodeAccountID} = require('ledgerd-address-codec');
 const {Hash160} = require('./hash-160');
 
 const AccountID = makeClass({
@@ -10,7 +10,7 @@ const AccountID = makeClass({
   statics: {
     from(value) {
       return value instanceof this ? value :
-              /^r/.test(value) ? this.fromBase58(value) :
+              /^L/.test(value) ? this.fromBase58(value) :
                     new this(value);
     },
     cache: {},
