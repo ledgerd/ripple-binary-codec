@@ -1,6 +1,6 @@
 {
   "name": "ledgerd-binary-codec",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "ledgerd binary codec",
   "files": [
     "distrib/npm/*",
