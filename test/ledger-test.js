@@ -20,7 +20,7 @@ describe('Ledger Hashes', function() {
       });
     });
   }
-  testFactory('ledger-full-40000.json');
-  testFactory('ledger-full-38129.json');
+  // testFactory('ledger-full-40000.json');
+  // testFactory('ledger-full-38129.json');
 });
 

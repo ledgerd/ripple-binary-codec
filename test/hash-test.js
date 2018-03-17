@@ -40,14 +40,15 @@ describe('Hash256', function() {
 });
 
 describe('Currency', function() {
-  it('Will have a null iso() for dodgy XRP ', function() {
-    const bad = Currency.from('0000000000000000000000005852500000000000');
+  it('Will have a null iso() for dodgy LGD ', function() {
+    // const bad = Currency.from('0000000000000000000000005852500000000000');
+      const bad = Currency.from('0000000000000000000000004C47440000000000');
     assert.equal(bad.iso(), null);
     assert.equal(bad.isNative(), false);
   });
   it('can be constructed from an Array', function() {
     const xrp = Currency.from(new Uint8Array(20));
-    assert.equal(xrp.iso(), 'XRP');
+    assert.equal(xrp.iso(), 'LGD');
   });
   it('throws on invalid reprs', function() {
     assert.throws(() => Currency.from(new Uint8Array(19)));

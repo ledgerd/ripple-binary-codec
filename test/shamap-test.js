@@ -81,8 +81,8 @@ describe('ShaMap', () => {
       // console.log('took seconds: ', (now() - t));
     });
   }
-  factory('ledger-full-38129.json');
-  factory('ledger-full-40000.json');
+  // factory('ledger-full-38129.json');
+  // factory('ledger-full-40000.json');
   // factory('ledger-4320277.json');
   // factory('14280680.json');
 });

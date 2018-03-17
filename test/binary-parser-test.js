@@ -125,7 +125,7 @@ function transactionParsingTests() {
       const [field, value] = readField();
       assert.equal(field, Field.TakerPays);
       assert.equal(value.currency.isNative(), true);
-      assert.equal(value.currency.toJSON(), 'XRP');
+      assert.equal(value.currency.toJSON(), 'LGD');
     }
     {
       const [field, value] = readField();
@@ -280,7 +280,7 @@ function pathSetBinaryTests() {
      0000585E1F3BD02A15D6185F8BB9B57CC60DEDDB37C13157180C769B66D942EE
      69E6DCC940CA48D82337AD000000000000000000000000425443000000000057
      180C769B66D942EE69E6DCC940CA48D82337AD10000000000000000000000000
-     58525000000000003000000000000000000000000055534400000000000A20B3
+     4C474400000000003000000000000000000000000055534400000000000A20B3
      C85F482532A9578DBB3950B85CA06594D100`);
 
   const expectedJSON =
@@ -312,7 +312,7 @@ function pathSetBinaryTests() {
       {account: 'L3AWbdp2jQrXrywJypdoNwVSvL81xs3uhn',
        currency: 'BTC',
        issuer: 'L3AWbdp2jQrXrywJypdoNwVSvL81xs3uhn'},
-      {currency: '0000000000000000000000005852500000000000'},
+      {currency: '0000000000000000000000004C47440000000000'},
       {currency: 'USD',
        issuer: 'LvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B'}]];
 
